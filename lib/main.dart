@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ketto_quote/NetworkHandler/NetworkHandler.dart';
 import 'package:ketto_quote/Quote.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +16,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Quote(),
+      home: ChangeNotifierProvider<NetworkHandler>(
+          create: (context) => NetworkHandler(),
+          builder: (context, child) {
+            return Quote();
+          }),
     );
   }
 }
