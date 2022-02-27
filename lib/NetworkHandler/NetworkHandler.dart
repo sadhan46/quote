@@ -21,7 +21,7 @@ class NetworkHandler with ChangeNotifier{
 
 
 
-  Future<void> get fetchdata async{
+  Future<void> get fetchQuote async{
     _quoteLoading=true;
 
   var response = await http.get(Uri.http('api.quotable.io', 'random'));

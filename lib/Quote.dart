@@ -22,7 +22,7 @@ class _QuoteState extends State<Quote> {
   @override
   Widget build(BuildContext context) {
 
-    context.read<NetworkHandler>().fetchdata;
+    context.read<NetworkHandler>().fetchQuote;
 
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -32,7 +32,7 @@ class _QuoteState extends State<Quote> {
         actions: [
           IconButton(onPressed: (){
             if (context.read<NetworkHandler>().quoteLoading == false) {
-              context.read<NetworkHandler>().fetchdata;
+              context.read<NetworkHandler>().fetchQuote;
             }
             }, icon: Icon(Icons.refresh_rounded,size: 30,))
         ],
@@ -41,7 +41,7 @@ class _QuoteState extends State<Quote> {
           onVerticalDragUpdate: (details) async {
             if (details.delta.dy < -0) {
               if (context.read<NetworkHandler>().quoteLoading == false) {
-                context.read<NetworkHandler>().fetchdata;
+                context.read<NetworkHandler>().fetchQuote;
               }
             }
           },
